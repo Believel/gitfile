@@ -5,3 +5,5 @@
 4. `git config --global user.email "email"` 修改邮箱地址
 5. `git log` 查看所有的日志信息
 6. `git status` 查看工作目录当前状态
+7. 哈哈哈哈
+
