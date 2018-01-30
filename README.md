@@ -8,7 +8,7 @@
 7. `git log` 查看所有的日志信息
 8. `git status` 查看工作目录当前状态
 9. `git add -A/.`提交全部
-10. `git commit` 提交信息，并进入vm编辑界面，填写提交内容
+10. `git commit` 提交信息，并进入vm编辑界面，填写提交内容,需要注意：按下i(小写)是进入插入模式，这样就可以书写提交信心，然后按下esc退出回到命令模式，最后连续输入两个大写Z，就能保存退出vm编辑界面了
 11. `git commit -m "commit content"` 提交信息
 12. `git push origin/master` 把本地代码远程到主分支上
 13. `git pull origin/master` 从远程主分支上拉取代码到本地
@@ -30,3 +30,17 @@
 * push分支的步骤：
   * `git checkout <branchName>` 切换到分支下面
   * `git push origin <branchName>` 把当前分支上传到远端仓库中，其中`origin`是远程仓库的别名，是你在 git clone 的时候 Git 自动帮你起的；`<branchName>`是远程仓库中目标 branch 的名字；合起来意思是「我要 push 到 origin 这个仓库的 <branchName> 分支」。
+## merge:合并commits
+> `git pull` 的内部操作其实是把远程仓库取到本地后（使用的是 `fetch`），再用一次 `merge` 来把远端仓库的新 commits 合并到本地。
+
+* `merge`含义：从目标 commit 和当前 commit （即 HEAD 所指向的 commit）分叉的位置起，把目标 commit 的路径上的所有 commit 的内容一并应用到当前 commit，然后自动生成一个新的 commit。
+* 适用场景
+  * 合并分支
+  * `pull`的内部操作
+* 特殊情况
+  * 情况1. 遇到冲突：①解决冲突；②手动`commit`一下
+    * `git merge --abort` 取消解决冲突
+  * 情况2. HEAD 领先于目标 commit
+    * 如果 `merge` 时的目标 `commit` 和 `HEAD` 处的 `commit` 并不存在分叉，而是 `HEAD` 领先于目标 `commit`：那么 `merge` 就没必要再创建一个新的 `commit` 来进行合并操作，因为并没有什么需要合并的。在这种情况下， Git 什么也不会做，`merge` 是一个空操作。
+  * 情况3. HEAD 落后于 目标 commit——fast-forward(快速前移)
+    * 如果 `HEAD` 和目标 `commit` 依然是不存在分叉，但 `HEAD` 不是领先于目标 `commit`，而是落后于目标 `commit`：那么 Git 会直接把 `HEAD`（以及它所指向的 branch，如果有的话）移动到目标 `commit`
