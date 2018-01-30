@@ -12,3 +12,7 @@
 11. `git commit -m "commit content"` 提交信息
 12. `git push origin/master` 把本地代码远程到主分支上
 13. `git pull origin/master` 从远程主分支上拉取代码到本地
+## 创建分支
+14. `git branch one-branch1` 创建分支'one-branch1',但是不会自动切换
+15. `git checkout one-branch1` 切换到 'one-branch1'分支
+16. 合并上面两个命令：`git checkout -b feature` 创建并切换到feature分支
