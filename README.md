@@ -27,3 +27,6 @@
 * 出于安全考虑，没有被合并到 master 过的 `branch` 在删除时会失败（因为怕你误删掉「未完成」的 `branch` 啊）：
 ## push的本质
 * 本质：把当前 `branch` 的位置（即它指向哪个 `commit`）上传到远端仓库，并把它的路径上的 commits 一并上传。
+* push分支的步骤：
+  * `git checkout <branchName>` 切换到分支下面
+  * `git push origin <branchName>` 把当前分支上传到远端仓库中，其中`origin`是远程仓库的别名，是你在 git clone 的时候 Git 自动帮你起的；`<branchName>`是远程仓库中目标 branch 的名字；合起来意思是「我要 push 到 origin 这个仓库的 <branchName> 分支」。
