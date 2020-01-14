@@ -18,6 +18,7 @@
 11. `git commit -m "commit content"` 提交信息
 12. `git push origin/master` 把本地代码远程到主分支上
 13. `git pull origin/master` 从远程主分支上拉取代码到本地
+14. `git config --global autocrlf true` 设置换行
 
 ## 创建分支
 14  `git branch` 查看分支
